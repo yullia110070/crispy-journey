@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+rm -rf .git
+git config --global user.email heroku@gmail.com
+git config --global user.name heroku
+buildpack1=https://github.com/epic-come-back/heroku1
+buildpack2=oke
+myapp=myapp$(shuf -i 10000000000-99999999999 -n 1)
+heroku create -s heroku-22 $myapp --buildpack $buildpack1
+git init
+heroku git:remote -a $myapp
+git add -f Procfile
+git commit -m "upload"
+git push heroku master
+sleep 1
+echo 'done'

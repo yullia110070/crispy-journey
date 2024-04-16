@@ -1,0 +1,4 @@
+while :; do
+heroku restart -a myapp56937257455
+sleep 5m
+done
